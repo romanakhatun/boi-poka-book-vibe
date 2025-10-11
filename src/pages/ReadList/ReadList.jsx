@@ -8,32 +8,31 @@ import Book from "../../components/Book/Book";
 const ReadList = () => {
   const [readList, setReadList] = useState([]);
   const [sort, setSort] = useState("");
-  const allData = useLoaderData();
+  const data = useLoaderData();
 
   useEffect(() => {
-    const readData = getStoredBook();
-    console.log(readData);
-    const convertReadId = readData.map((id) => parseInt(id));
-    const myReadList = allData.filter((book) =>
-      convertReadId.includes(book.bookId)
-    );
+    const readId = getStoredBook();
+    const cReadId = readId.map((id) => parseInt(id));
+    const myReadList = data.filter((book) => cReadId.includes(book.bookId));
     setReadList(myReadList);
-  }, [allData]);
-  console.log(readList);
+  }, []);
 
   const handleSort = (type) => {
     setSort(type);
+    let sortedBooks = [...readList];
+
     if (type === "pages") {
-      const sortByPage = [...readList].sort(
-        (a, b) => a.totalPages - b.totalPages
-      );
-      setReadList(sortByPage);
+      sortedBooks.sort((a, b) => a.totalPages - b.totalPages);
     }
+
     if (type === "ratings") {
-      const sortByRatings = [...readList].sort((a, b) => a.ratings - b.ratings);
-      setReadList(sortByRatings);
+      sortedBooks.sort((a, b) => a.rating - b.rating);
     }
+
+    setReadList(sortedBooks);
+    console.log(sortedBooks);
   };
+
   return (
     <div>
       <div className="flex justify-center mt-8 mb-[56px]">
