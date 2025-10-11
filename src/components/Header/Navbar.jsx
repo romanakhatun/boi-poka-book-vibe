@@ -2,21 +2,27 @@ import { NavLink } from "react-router";
 
 const Navbar = () => {
   const Links = (
-    <div className="lg:space-x-12">
-      <NavLink className="text-[18px]" to="/">
-        Home
-      </NavLink>
-      <NavLink className="text-[18px]" to="/">
-        Listed Books
-      </NavLink>
-      <NavLink className="text-[18px]" to="/">
-        Pages to Read
-      </NavLink>
+    <div className="lg:space-x-12 lg:flex">
+      <li>
+        <NavLink className="text-[18px]" to="/">
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className="text-[18px]" to="/readList">
+          Listed Books
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className="text-[18px]" to="/">
+          Pages to Read
+        </NavLink>
+      </li>
     </div>
   );
   return (
     <div>
-      <div className="navbar py-7">
+      <div className="navbar py-7 max-w-6xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -37,15 +43,15 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2"
+              className="menu menu-sm dropdown-content rounded-box bg-gray-400 z-1 mt-3 w-52 p-2"
             >
               {Links}
             </ul>
           </div>
           <a className="text-[28px] font-bold">Book Vibe</a>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{Links}</ul>
+        <div className="navbar-center hidden lg:block">
+          <ul className="menu-horizontal px-1">{Links}</ul>
         </div>
         <div className="navbar-end space-x-4">
           <a className="btn bg-[#23BE0A] text-white  border-none ">Sign In</a>

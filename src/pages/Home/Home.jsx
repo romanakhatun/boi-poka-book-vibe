@@ -22,6 +22,7 @@ const Home = () => {
 
   return (
     <div>
+      <title>Home | Boi Poka</title>
       <Banner />
       <div className="my-25">
         <Books data={data} />
