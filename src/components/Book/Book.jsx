@@ -6,8 +6,8 @@ const Book = ({ book }) => {
 
   return (
     <div>
-      <div className="card  border border-[#13131326] p-6">
-        <Link to={`/bookDetails/${bookId}`}>
+      <div className="card border border-[#13131326] p-6">
+        <Link to={`/book-details/${bookId}`}>
           <figure className="bg-[#f3f3f3] p-8 rounded-xl">
             <img className="h-[166px]" src={image} alt={bookName} />
           </figure>
@@ -20,7 +20,7 @@ const Book = ({ book }) => {
               </li>
             ))}
           </div>
-          <Link to={`/bookDetails/${bookId}`}>
+          <Link to={`/book-details/${bookId}`}>
             <h2 className="card-title font-playfair">{bookName}</h2>
           </Link>
 
